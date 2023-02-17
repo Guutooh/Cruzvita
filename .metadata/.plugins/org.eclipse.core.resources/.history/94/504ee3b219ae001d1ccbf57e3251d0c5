@@ -1,0 +1,12 @@
+package br.com.cruzvita;
+
+
+public class Banco {
+
+Cliente cliente;
+Conta conta;
+String endereco;
+	
+	
+	
+}

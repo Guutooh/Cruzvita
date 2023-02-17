@@ -1,0 +1,50 @@
+package br.com.cruzvita;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Conta novaconta;
+		
+		 Locale.setDefault(Locale.US);
+	     Scanner sc = new Scanner(System.in);
+
+	     
+	     System.out.print("numero da agencia: ");
+	     int numAgencia = sc.nextInt();
+	     
+	     System.out.print("numero da conta: ");
+	     int numConta = sc.nextInt();
+	     
+	     System.out.print("Saldo inicial: ");
+	     int saldoInicial = sc.nextInt();   
+	     
+//	     System.out.print("Nome do Titular: ");
+//	     sc.nextLine();
+//	     String Titular = sc.nextLine();
+	     
+	     
+	     novaconta = new Conta(numAgencia,numConta,saldoInicial);
+	     
+	     System.out.println("-------------------- \n");
+	     
+	     System.out.println("Dados da conta Criada: ");
+	     System.out.println(novaconta);
+	     
+	     System.out.println("------------------------- \n");
+	    
+	    System.out.print("Digite o valor do deposito: ");
+	    double valor = sc.nextDouble();
+	     
+	     
+	     novaconta.depositar(valor);
+	     System.out.printf("Novo Saldo: %.2f ", novaconta.getSaldo());
+	     
+	     
+	     sc.close();
+	}
+
+}

@@ -1,0 +1,63 @@
+package br.com.cruzvita;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("informe nome do cliente: ");
+		String nomeCliente = sc.nextLine();
+
+		System.out.print("informe o Banco: ");
+		String nomeBanco = sc.nextLine();
+
+		System.out.print("numero da agencia: ");
+		int numAgencia = sc.nextInt();
+
+		System.out.print("numero da conta: ");
+		int numConta = sc.nextInt();
+
+		System.out.print("Saldo inicial: ");
+		double saldoInicial = sc.nextDouble();
+
+		Conta novaconta = new Conta(new Cliente(nomeCliente), numAgencia, numConta, saldoInicial, new Banco(nomeBanco));
+		Conta novaconta2 = new Conta(new Cliente("teste"), 0);
+
+		System.out.println("-------------------- \n");
+
+		System.out.println("Dados da conta Criada: \n");
+		System.out.println(novaconta);
+
+		System.out.println("------------------------- \n");
+
+		System.out.print("Digite o valor do deposito: ");
+		double valor = sc.nextDouble();
+
+		novaconta.depositar(valor);
+		System.out.printf("Novo Saldo: %.2f ", novaconta.getSaldo());
+
+		System.out.println("\n------------------------- \n");
+
+		System.out.print("Digite o valor do saque: ");
+		valor = sc.nextDouble();
+		novaconta.sacar(valor);
+		System.out.printf("Novo Saldo: %.2f ", novaconta.getSaldo());
+
+		System.out.println("\n------------------------- \n");
+
+		System.out.println("Efetuando Saque de 1000,00");
+
+		novaconta.transferir(novaconta2, 1000);
+
+		System.out.printf("Novo Saldo atualizado Conta 1: %.2f ", novaconta.getSaldo());
+		System.out.printf("\nNovo Saldo atualizado Conta 2: %.2f ", novaconta2.getSaldo());
+
+		sc.close();
+	}
+
+}

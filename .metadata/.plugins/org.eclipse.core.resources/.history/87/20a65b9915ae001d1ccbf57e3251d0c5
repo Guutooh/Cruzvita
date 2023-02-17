@@ -1,0 +1,12 @@
+package br.com.cruzvita;
+
+public class Cliente {
+
+	String nome;
+	String telefone;
+	String endereco;
+	
+	
+}
+	
+

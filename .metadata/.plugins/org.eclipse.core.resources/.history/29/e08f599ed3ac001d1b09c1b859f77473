@@ -1,0 +1,85 @@
+package br.com.cruzvita;
+
+
+public class Conta implements Acoes{
+
+	int numAgencia;
+	int numConta;
+	double saldo;
+	Cliente cliente;
+	
+
+	public Conta(int numAgencia, int numConta, double saldo) {
+		super();
+		this.numAgencia = numAgencia;
+		this.numConta = numConta;
+		this.saldo = saldo;
+		
+	}
+	
+	
+	
+	public int getNumAgencia() {
+		return numAgencia;
+	}
+	public void setNumAgencia(int numAgencia) {
+		this.numAgencia = numAgencia;
+	}
+	public int getNumConta() {
+		return numConta;
+	}
+	public void setNumConta(int numConta) {
+		this.numConta = numConta;
+	}
+	public double getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(int saldo) {
+		this.saldo = saldo;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	
+	@Override
+	public void sacar(double quantia) {
+		saldo += quantia;
+		
+	}
+	@Override
+	public void depositar(double quantia) {
+		saldo -= quantia;
+		
+	}
+	@Override
+	public void transferir( Conta destino, double valor) {
+		this.saldo -= valor;
+		destino.saldo = destino.saldo + valor;
+		
+		
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Nome: " + this.cliente.nome
+				+"Numero da conta: " + numConta
+				+"\nNumero da agencia: " + numAgencia
+				+"\nSaldo informado: "  + String.format("%.2f", saldo);
+				
+			
+		
+	}
+
+	
+	
+	
+	
+
+	
+}

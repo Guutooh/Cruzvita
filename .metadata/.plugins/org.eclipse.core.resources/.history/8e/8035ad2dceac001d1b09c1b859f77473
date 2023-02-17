@@ -1,0 +1,9 @@
+package br.com.cruzvita;
+
+public interface Acoes {
+
+	double sacar(double quantia);
+	double depositar(double quantia);
+	double transferir(double quantia);
+	
+}
